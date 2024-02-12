@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="submit"],
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="submit"] {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Happy Birthday!</h2>
+        <p>Fill out the form below with your name and birthday date to receive a special birthday message and throw some confetti!</p>
+        <form id="birthdayForm">
+            <label for="name">Your Name:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <label for="birthday">Your Birthday Date:</label><br>
+            <input type="date" id="birthday" name="birthday" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="birthdayMessage" style="display: none;">
+            <p>Happy Birthday, <span id="recipientName"></span>!</p>
+            <button onclick="throwConfetti()">Throw Confetti</button>
+        </div>
+    </div>
+
+    <script>
+        function throwConfetti() {
+            // Code to throw confetti goes here
+            alert("Confetti thrown! 🎉");
+        }
+
+        document.getElementById("birthdayForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("name").value;
+            var birthday = document.getElementById("birthday").value;
+            var today = new Date();
+            var bday = new Date(birthday);
+            var age = today.getFullYear() - bday.getFullYear();
+            var month = today.getMonth() - bday.getMonth();
+            if (month < 0 || (month === 0 && today.getDate() < bday.getDate())) {
+                age--;
+            }
+            if (month === 0 && today.getDate() === bday.getDate()) {
+                alert("Happy " + age + "th Birthday, " + name + "!");
+            } else {
+                alert("Happy " + age + "th Birthday, " + name + "!");
+            }
+            document.getElementById("recipientName").innerText = name;
+            document.getElementById("birthdayForm").style.display = "none";
+            document.getElementById("birthdayMessage").style.display = "block";
+        });
+    </script>
+</body>
+</html>
