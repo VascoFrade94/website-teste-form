@@ -47,25 +47,25 @@
 </head>
 <body>
     <div class="container">
-        <h2>Happy Birthday!</h2>
-        <p>Fill out the form below with your name and birthday date to receive a special birthday message and throw some confetti!</p>
+        <h2>Parabéns Primaço!</h2>
+        <p>Preenche aí este complexo formulário e recebe uma mensagem de parabéns nunca antes vista!</p>
         <form id="birthdayForm">
-            <label for="name">Your Name:</label><br>
+            <label for="name">Nome:</label><br>
             <input type="text" id="name" name="name" required><br>
-            <label for="birthday">Your Birthday Date:</label><br>
+            <label for="birthday">Data de nascimento:</label><br>
             <input type="date" id="birthday" name="birthday" required><br>
             <input type="submit" value="Submit">
         </form>
         <div id="birthdayMessage" style="display: none;">
-            <p>Happy Birthday, <span id="recipientName"></span>!</p>
-            <button onclick="throwConfetti()">Throw Confetti</button>
+            <p>Parabéns, <span id="recipientName"></span>!</p>
+            <button onclick="throwConfetti()">Lança uns confetis</button>
         </div>
     </div>
 
     <script>
         function throwConfetti() {
             // Code to throw confetti goes here
-            alert("Confetti thrown! 🎉");
+            alert("Confetti thrown! 🎉🎉🎉🎉");
         }
 
         document.getElementById("birthdayForm").addEventListener("submit", function(event) {
